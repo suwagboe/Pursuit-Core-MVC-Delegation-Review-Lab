@@ -81,9 +81,15 @@
                         <subviews>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="PGd-km-q8T">
                                 <rect key="frame" x="160" y="449" width="94" height="32"/>
+                                <connections>
+                                    <action selector="stepperChanged:" destination="Idi-Fw-Ori" eventType="valueChanged" id="Q0u-VD-x1h"/>
+                                </connections>
                             </stepper>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Y9Q-yM-soH">
                                 <rect key="frame" x="148" y="294" width="118" height="31"/>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="Idi-Fw-Ori" eventType="valueChanged" id="zuI-c3-k8A"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change TableView Font Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnw-tn-z2y">
                                 <rect key="frame" x="20" y="174" width="374" height="36"/>

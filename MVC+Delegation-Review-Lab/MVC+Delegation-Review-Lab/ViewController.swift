@@ -13,6 +13,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var theMovie = Movie.allMovies
+    
+    var newFontSize: CGFloat? {
+        didSet{
+            
+            // through the unwind segue.. you want the value of newFontSize to eqaul the detailsViewController.currentFontSize
+            tableView.dataSource = self
+        }
+    }
         
 //        [Movie]? {
 //        didSet {
@@ -31,6 +39,15 @@ class ViewController: UIViewController {
     func loadData() {
         // want the movie to be all of the movies and then add into all of the movies
         theMovie = Movie.allMovies //??? will this work
+    }
+    
+    //we need to make a UNWIND segue only...
+    
+    @IBAction func updateUIFromUnwindSegue(segue: UIStoryboardSegue ){
+        guard let detailsViewController = segue.source as? DetailsViewController else {
+            return
+        }
+//        newFontSize = DetailsViewController.currentFontSize
     }
 
 }
