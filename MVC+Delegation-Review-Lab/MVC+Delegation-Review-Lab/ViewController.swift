@@ -58,7 +58,6 @@ extension ViewController: UITableViewDataSource{
         cell.detailTextLabel?.text = specificMovie.year.description
         
         /*
-         
          /
         else {
             fatalError("couldn't dequeue properly for the cell ")
@@ -67,6 +66,9 @@ extension ViewController: UITableViewDataSource{
         return cell
             }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return theMovie.count
+    }
     
     
 }
