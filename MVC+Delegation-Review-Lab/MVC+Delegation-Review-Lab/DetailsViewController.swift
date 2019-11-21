@@ -15,27 +15,30 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var stepperLabel: UILabel!
     
-    var currentFontSize: CGFloat!
+    var currentFontSize: CGFloat? = 18
+    
     
     // it is the font size??
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // configureStepper()
+        configureStepper()
+        configureSlider()
     }
     
     func configureSlider(){
         slider.minimumValue = 0.0
-        slider.maximumValue = 10.0
+        slider.maximumValue = 50.0
         //?? 
 
         // default value
         slider.value = 5.0
     }
     
+    
     func configureStepper() {
         stepper.minimumValue = 0.0
-        stepper.maximumValue = 10.0
+        stepper.maximumValue = 50.0
         stepper.stepValue = 1.0
 
         //default stepper value
@@ -52,7 +55,6 @@ class DetailsViewController: UIViewController {
         // makes the current font size equal to the size inside of actual view controller.
         currentFontSize = CGFloat(sender.value)
         stepperLabel.text = "Preview Font Size: \(String(describing: currentFontSize)) "
-
         
     }
     
@@ -60,10 +62,6 @@ class DetailsViewController: UIViewController {
         stepper.value = sender.value
         currentFontSize = CGFloat(sender.value)
         stepperLabel.text = "Preview Font Size: \(String(describing: currentFontSize)) "
-        
-        
-        
     }
-    
 
 }

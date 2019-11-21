@@ -14,21 +14,16 @@ class ViewController: UIViewController {
     
     var theMovie = Movie.allMovies
     
-    var newFontSize: CGFloat? {
-        didSet{
-            
-            // through the unwind segue.. you want the value of newFontSize to eqaul the detailsViewController.currentFontSize
-            tableView.dataSource = self
-        }
-    }
-        
-//        [Movie]? {
-//        didSet {
-//            // what will the didSet do once it gets the data
-//            tableView.reloadData()
-//        }
-//    }
     
+    var newFontSize: CGFloat? = 20{
+        // give the font a start value
+        didSet{
+            tableView.reloadData()
+            // adds the data to file
+            
+        }
+}
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -47,7 +42,7 @@ class ViewController: UIViewController {
         guard let detailsViewController = segue.source as? DetailsViewController else {
             return
         }
-//        newFontSize = DetailsViewController.currentFontSize
+        newFontSize = detailsViewController.currentFontSize
     }
 
 }
@@ -68,8 +63,18 @@ extension ViewController: UITableViewDataSource{
         
         let specificMovie = theMovie[indexPath.row]
         
+        // changes the text
         cell.textLabel?.text = specificMovie.name
+        //changes the font
+         cell.textLabel?.font = UIFont(name: "times new roman", size: newFontSize!)
+        
+        //changes the text
         cell.detailTextLabel?.text = specificMovie.year.description
+       
+        //changes the font
+        // need to add the name of the font and size of the font
+        cell.detailTextLabel?.font = UIFont(name:  "times new roman", size: newFontSize!)
+        
         /*
          /
         else {
@@ -80,6 +85,7 @@ extension ViewController: UITableViewDataSource{
             }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        // this give the number of sections of the file
         return theMovie.count
     }
     
