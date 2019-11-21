@@ -32,31 +32,27 @@ class ViewController: UIViewController {
         // want the movie to be all of the movies and then add into all of the movies
         theMovie = Movie.allMovies //??? will this work
     }
-    
-    
 
-    
 }
 
 extension ViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
      return theMovie.count
-        
     }
     
+    // populated the data that comes in from the above variable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath)
         
         // Movie.swift file is only an array of movies
-        let specificMovie = theMovie[indexPath.section]
+        // remember that row is for only one array
+        // if you do section then it needs to be an array of arrays
         
+        let specificMovie = theMovie[indexPath.row]
         
         cell.textLabel?.text = specificMovie.name
         cell.detailTextLabel?.text = specificMovie.year.description
-        
         /*
          /
         else {
